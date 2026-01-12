@@ -1,6 +1,12 @@
-
 import { GoogleGenAI } from "@google/genai";
 import { Project, Experience } from '../types';
+
+// Declare process to satisfy TypeScript compiler since we are using define in Vite
+declare const process: {
+  env: {
+    API_KEY: string;
+  }
+};
 
 // Access API Key securely from environment variables
 // Note: In Vite config, we map this to the build environment
