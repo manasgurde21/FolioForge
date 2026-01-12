@@ -2,12 +2,13 @@
 import { GoogleGenAI } from "@google/genai";
 import { Project, Experience } from '../types';
 
-// API Key provided by user
-const API_KEY = 'AIzaSyDLwsF4K-o3Mb4dknNBHLt5jJFGtEcWUeI';
-
-const ai = new GoogleGenAI({ apiKey: API_KEY });
+// Access API Key securely from environment variables
+// Note: In Vite config, we map this to the build environment
+// Fix: Use process.env.API_KEY directly when initializing the client instance
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const generateContent = async (prompt: string): Promise<string> => {
+  // Fix: Assume API key is pre-configured and valid per guidelines
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
