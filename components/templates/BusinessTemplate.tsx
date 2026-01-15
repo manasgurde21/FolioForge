@@ -2,6 +2,7 @@
 import React from 'react';
 import { PortfolioData } from '../../types';
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { ProjectSlider } from '../ui/ProjectSlider';
 
 export const BusinessTemplate: React.FC<{ data: PortfolioData }> = ({ data }) => {
   return (
@@ -48,28 +49,11 @@ export const BusinessTemplate: React.FC<{ data: PortfolioData }> = ({ data }) =>
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects Section - Updated with Slider */}
       <section id="projects" className="py-5 bg-white">
         <div className="container">
           <h2 className="text-center fw-bold mb-5">Key Projects</h2>
-          <div className="row g-4">
-            {data.projects.map(project => (
-              <div key={project.id} className="col-md-4">
-                <div className="card h-100 shadow-sm border-light">
-                    <div className="card-body d-flex flex-column">
-                        <h3 className="h5 fw-bold text-primary mb-3">{project.name}</h3>
-                        <p className="card-text text-muted small flex-grow-1">{project.longDescription}</p>
-                        <div className="d-flex flex-wrap gap-1 mb-3">
-                            {project.technologies.map(tech => (
-                                <span key={tech} className="badge bg-light text-dark border">{tech.trim()}</span>
-                            ))}
-                        </div>
-                        <a href={`https://${project.link}`} target="_blank" rel="noopener noreferrer" className="btn btn-outline-primary btn-sm w-100 stretched-link">Learn More</a>
-                    </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ProjectSlider projects={data.projects} darkMode={false} />
         </div>
       </section>
 

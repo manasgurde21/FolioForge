@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { PortfolioData } from '../../types';
-import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
+import { ProjectSlider } from '../ui/ProjectSlider';
 
 export const DesignerTemplate: React.FC<{ data: PortfolioData }> = ({ data }) => {
   return (
@@ -43,27 +44,7 @@ export const DesignerTemplate: React.FC<{ data: PortfolioData }> = ({ data }) =>
       <section id="projects" className="py-5">
         <div className="container">
             <h2 className="text-center fw-bold mb-5 display-5">Featured Work</h2>
-            <div className="d-flex flex-column gap-5">
-            {data.projects.map((project, index) => (
-                <div key={project.id} className="row align-items-center g-5">
-                    <div className={`col-md-6 ${index % 2 !== 0 ? 'order-md-2' : ''}`}>
-                        <img src={`https://picsum.photos/seed/${project.id}/800/600`} alt={project.name} className="img-fluid rounded shadow" />
-                    </div>
-                    <div className={`col-md-6 ${index % 2 !== 0 ? 'order-md-1' : ''}`}>
-                        <h3 className="display-6 fw-bold mb-3">{project.name}</h3>
-                         <div className="d-flex flex-wrap gap-2 mb-4">
-                            {project.technologies.map(tech => (
-                            <span key={tech} className="badge bg-primary-subtle text-primary rounded-1">{tech.trim()}</span>
-                            ))}
-                        </div>
-                        <p className="text-muted mb-4">{project.longDescription}</p>
-                        <a href={`https://${project.link}`} target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark rounded-pill px-4">
-                        View Case Study <ExternalLink size={16} className="ms-2" />
-                        </a>
-                    </div>
-                </div>
-            ))}
-            </div>
+            <ProjectSlider projects={data.projects} darkMode={false} />
         </div>
       </section>
       

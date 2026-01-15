@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { PortfolioData } from '../../types';
-import { Github, Linkedin, Mail, ExternalLink, Download, Phone, MapPin } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, Phone } from 'lucide-react';
+import { ProjectSlider } from '../ui/ProjectSlider';
 
 export const DeveloperTemplate: React.FC<{ data: PortfolioData }> = ({ data }) => {
   const { visualConfig } = data;
@@ -68,46 +69,11 @@ export const DeveloperTemplate: React.FC<{ data: PortfolioData }> = ({ data }) =
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects Section - Updated with Slider */}
       <section id="projects" className="py-5 bg-dark">
         <div className="container" style={{maxWidth: 1000}}>
           <h2 className="text-center fw-bold mb-5">Featured Projects</h2>
-          <div className="row g-5">
-            {data.projects.map(project => (
-              <div key={project.id} className="col-12">
-                 <div className="card bg-secondary bg-opacity-10 border-0 text-white overflow-hidden">
-                    <div className="row g-0">
-                        {project.imageUrl && (
-                            <div className="col-md-5">
-                                <img src={project.imageUrl} className="img-fluid h-100 w-100" style={{objectFit: 'cover'}} alt={project.name} />
-                            </div>
-                        )}
-                        <div className={project.imageUrl ? "col-md-7" : "col-12"}>
-                             <div className="card-body p-4">
-                                <div className="d-flex justify-content-between align-items-start mb-2">
-                                    <h3 className="h3 mb-0" style={themeStyle}>{project.name}</h3>
-                                    <div className="d-flex gap-2">
-                                        {project.githubLink && <a href={project.githubLink} className="text-white-50 hover-white"><Github size={20}/></a>}
-                                        <a href={project.link} className="text-white-50 hover-white"><ExternalLink size={20}/></a>
-                                    </div>
-                                </div>
-                                <p className="text-white-50 fw-medium mb-3">{project.role}</p>
-                                <p className="text-secondary small mb-3">{project.longDescription}</p>
-                                {project.keyFeatures && (
-                                    <p className="small text-light mb-3"><strong className="text-white-50">Key Features:</strong> {project.keyFeatures}</p>
-                                )}
-                                <div className="d-flex flex-wrap gap-2">
-                                    {project.technologies.map(tech => (
-                                    <span key={tech} className="badge bg-black bg-opacity-50 text-light border border-secondary">{tech.trim()}</span>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
-              </div>
-            ))}
-          </div>
+          <ProjectSlider projects={data.projects} darkMode={true} />
         </div>
       </section>
       
@@ -133,7 +99,6 @@ export const DeveloperTemplate: React.FC<{ data: PortfolioData }> = ({ data }) =
       <section className="py-5 bg-dark">
           <div className="container">
               <div className="row g-5">
-                  {/* Education */}
                   <div className="col-md-6">
                       <h3 className="h4 fw-bold mb-4 border-bottom border-secondary pb-2">Education</h3>
                       {data.education.map(edu => (
@@ -144,7 +109,6 @@ export const DeveloperTemplate: React.FC<{ data: PortfolioData }> = ({ data }) =
                           </div>
                       ))}
                   </div>
-                   {/* Certifications & Achievements */}
                   <div className="col-md-6">
                        <h3 className="h4 fw-bold mb-4 border-bottom border-secondary pb-2">Certifications & Awards</h3>
                        <ul className="list-unstyled">

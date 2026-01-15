@@ -18,6 +18,18 @@
 
 <hr />
 
+## 💡 About The Project
+
+**Building a portfolio shouldn't take longer than building the projects inside it.**
+
+For many developers and designers, creating a personal website is a daunting task. We often struggle with two main hurdles: **Design Paralysis** and **Writer's Block**. You spend hours agonizing over CSS or staring at a blank screen trying to write a "professional yet cool" bio.
+
+**FolioForge** was built to solve both.
+
+It bridges the gap between your raw skills and a polished professional presence. By leveraging **Google's Gemini AI**, FolioForge takes your rough bullet points and transforms them into engaging bios, compelling project descriptions, and professional experience summaries. 
+
+Combined with our reactive, high-performance templates, you can go from *blank screen* to *deployed portfolio* in minutes.
+
 ## ✨ Features
 
 - **🤖 AI Content Generation**: Stuck on what to write? Let Gemini AI generate your **Bio**, **Project Descriptions**, and **Experience Summaries** with a single click.
