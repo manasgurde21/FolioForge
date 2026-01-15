@@ -174,7 +174,7 @@ export const GradientTemplate: React.FC<{ data: PortfolioData }> = ({ data }) =>
                                 <div key={exp.id} className="mb-4 pb-4 border-bottom border-secondary">
                                     <div className="d-flex justify-content-between mb-2">
                                         <h5 className="mb-0">{exp.role}</h5>
-                                        <span className="opacity-50 small">{exp.year}</span>
+                                        <span className="opacity-50 small">{exp.startDate} - {exp.endDate}</span>
                                     </div>
                                     <div className="text-info">{exp.company}</div>
                                 </div>
