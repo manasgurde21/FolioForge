@@ -1,20 +1,17 @@
+
 import { GoogleGenAI } from "@google/genai";
 import { Project, Experience } from '../types';
 
-// Declare process to satisfy TypeScript compiler since we are using define in Vite
-declare const process: {
-  env: {
-    API_KEY: string;
-  }
+// Access API Key securely from environment variables
+// We use a safe access pattern to satisfy TypeScript without conflicting with global Node types
+const getApiKey = (): string => {
+  // @ts-ignore - process is defined by Vite via define plugin
+  return process.env.API_KEY || '';
 };
 
-// Access API Key securely from environment variables
-// Note: In Vite config, we map this to the build environment
-// Fix: Use process.env.API_KEY directly when initializing the client instance
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: getApiKey() });
 
 const generateContent = async (prompt: string): Promise<string> => {
-  // Fix: Assume API key is pre-configured and valid per guidelines
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',

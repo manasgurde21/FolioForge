@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { PortfolioData } from '../../types';
-import { Github, Linkedin, Mail, ArrowRight, Download, Terminal as TerminalIcon } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { ProjectSlider } from '../ui/ProjectSlider';
 
 // --- 1. Minimalist Template ---
@@ -280,7 +280,7 @@ export const ArtGalleryTemplate: React.FC<{ data: PortfolioData }> = ({ data }) 
     );
 };
 
-// --- 7. Retro Terminal Template ---
+// --- 7. Retro Template ---
 export const RetroTemplate: React.FC<{ data: PortfolioData }> = ({ data }) => {
     return (
         <div className="min-vh-100 bg-dark text-success p-4 font-monospace" style={{backgroundColor: '#0a0a0a', color: '#0f0'}}>
